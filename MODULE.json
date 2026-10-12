@@ -1,0 +1,18 @@
+{
+  "id": "bitrix-read-kit",
+  "version": "0.1.0",
+  "author": "Дмитрий Лукашов",
+  "scope": "Standalone Python CLI for minimal visible-scope open-deal/activity snapshots. Explicit inbound-webhook read capture via crm.item.list and crm.activity.list; local synthetic/offline audit. No CRM writes, MCP, arbitrary API, full-portal or financial-result claims.",
+  "rights_status": "original_code_reviewed",
+  "license": "MIT",
+  "origin": "New original code, docs and synthetic fixture prepared from scratch for the owner request on 2026-10-10 with disclosed AI assistance. No private core or client source copied; official Bitrix documentation used only to verify API semantics.",
+  "dependencies": "Python 3.9+ standard library only",
+  "synthetic_example": true,
+  "telemetry": false,
+  "crm_writes": false,
+  "live_portal_verified": false,
+  "channel": "https://t.me/lookatsoul",
+  "catalog": "https://github.com/ilookatshow-gif/lookatshow-open-tools",
+  "site": "https://lookatshow.ru/executive?utm_source=github&utm_medium=open_module&utm_campaign=bitrix-read-kit&utm_content=module",
+  "publish_files": ["bitrix_read_kit.py", "bitrix_transport.py", "install.py", "README.md", "README.ru.md", "LICENSE", "NOTICE.md", "MODULE.json", "AGENTS.md", "skills/bitrix-read-kit/SKILL.md", "tests/test_kit.py", "tests/test_transport.py", "tests/smoke_install.py", "examples/synthetic-snapshot.json", ".github/workflows/ci.yml"]
+}

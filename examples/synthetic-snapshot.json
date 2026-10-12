@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source": "synthetic",
+  "capture_started_at": "2026-10-10T09:00:00+03:00",
+  "captured_at": "2026-10-10T09:00:00+03:00",
+  "deals_complete": true,
+  "deals": [
+    {"id": 101, "categoryId": 0, "assignedById": 10, "stageSemanticId": "P"},
+    {"id": 102, "categoryId": 0, "assignedById": 10, "stageSemanticId": "P"},
+    {"id": 103, "categoryId": 1, "assignedById": 11, "stageSemanticId": "P"},
+    {"id": 104, "categoryId": 1, "assignedById": 11, "stageSemanticId": "P"},
+    {"id": 105, "categoryId": 1, "assignedById": 11, "stageSemanticId": "P"}
+  ],
+  "activity_reads": [
+    {"deal_id": 101, "complete": true, "items": []},
+    {"deal_id": 102, "complete": true, "items": [
+      {"ID": 201, "COMPLETED": "N", "DEADLINE": "2026-10-10T12:00:00+03:00"}
+    ]},
+    {"deal_id": 103, "complete": true, "items": [
+      {"ID": 202, "COMPLETED": "N", "DEADLINE": "2026-10-09T15:00:00+03:00"}
+    ]},
+    {"deal_id": 104, "complete": true, "items": [
+      {"ID": 203, "COMPLETED": "N", "DEADLINE": "9999-12-31T00:00:00+03:00"},
+      {"ID": 204, "COMPLETED": "Y", "DEADLINE": "2026-10-08T15:00:00+03:00"}
+    ]},
+    {"deal_id": 105, "complete": false, "items": []}
+  ]
+}
