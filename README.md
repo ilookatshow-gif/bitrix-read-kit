@@ -15,6 +15,12 @@ account, network connection or additional Python packages. This is a Python CLI,
 not an MCP server. Publishing code and testing synthetic input does not prove
 access to your real portal; permissions and provider responses need their own check.
 
+The [step-by-step practice](https://lookatshow.ru/practice/bitrix-prosrochennye-dela-ii/?utm_source=github&utm_medium=open_module&utm_campaign=bitrix-read-kit&utm_content=demo)
+(in Russian) includes downloadable JSON files, a copyable agent prompt and a real
+screenshot of local output on five fictional deals. It also checks what happens
+when an empty activity read is incomplete. The screenshot is a separate HTML
+viewer of saved output, not the Bitrix24 interface or a built-in module screen.
+
 ## What the result does—and does not—say
 
 You get a minimal snapshot and a reproducible local audit of visible in-progress
@@ -45,6 +51,48 @@ The included **synthetic** snapshot contains five fictional deals. At
 There are three unique visible unfinished activities. Flag counts are
 **nonexclusive**: a real deal can have, for example, both an overdue and a scheduled
 activity. These are synthetic facts, not results from a customer's CRM.
+
+### One synthetic snapshot, two analysis times
+
+`demo` always audits the fictional fixture at `2026-10-10T10:00:00+03:00`,
+not at the current time. From the unpacked source directory, compare:
+
+```bash
+python3 -B bitrix_read_kit.py demo
+python3 -B bitrix_read_kit.py audit --input examples/synthetic-snapshot.json --as-of 2026-10-13T10:00:00+03:00
+```
+
+On Windows, use `python` if that is your interpreter name.
+
+| Report field | Synthetic 10 October, 10:00 MSK | Synthetic 13 October, 10:00 MSK |
+| --- | --- | --- |
+| Visible in-progress deals | 5 | 5 |
+| Unique visible unfinished activities | 3 | 3 |
+| Deals with a scheduled activity | 1 | 0 |
+| Deals with an overdue activity | 1 | 2 |
+| Deals with an undated activity | 1 | 1 |
+| Complete activity reads with no visible unfinished activity | 1 | 1 |
+| Deals with incomplete activity reads | 1 | 1 |
+
+Activity `201` under deal `102` is due on 10 October at 12:00 MSK. Its deadline
+has not passed in the first report and has passed in the second. The input
+snapshot is unchanged: a later analysis timestamp is not a newer portal capture.
+The snapshot does not tell you whether the activity was actually completed after
+capture. Flag counts are nonexclusive. Both reports retain
+`all_selected_activity_pages_complete=false`.
+
+Check coverage before discussing absence. Deal `101` has an empty, complete
+visible selection; deal `105` has an incomplete read, so an absence claim is
+unsupported. No visible activity does not establish lost sales: check the CRM
+card and the actual customer correspondence before proposing a process change.
+
+Ask an agent:
+
+> Repeat both audits of the synthetic fixture. For each ID, report visible
+> evidence, coverage, the supported conclusion and the manual verification step.
+> Explain why activity 201 under deal 102 changes from scheduled to overdue while
+> the unique unfinished-activity count stays the same. Do not connect a portal,
+> change the CRM or treat an incomplete read as an empty complete selection.
 
 ## Ask an agent
 
